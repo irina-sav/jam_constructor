@@ -103,7 +103,7 @@ h1 {
   width: 100%;
   flex-wrap: wrap;
   display: flex;
-  padding: 20px 0 27px;
+  padding: 20px 0 123px;
   width: 77%;
   margin: 0 auto;
   flex-wrap: wrap;
@@ -194,12 +194,12 @@ h1 {
 .jamjar:before {
   content: "";
   position: absolute;
-  width: 279px;
-  height: 380px;
+  width: 351px;
+  height: 494px;
   display: block;
-  left: -37px;
+  left: -67px;
   z-index: -1;
-  bottom: -10px;
+  bottom: -18px;
   background: url(../img/fff.jpg);
 }
 .jamjar .taste:nth-child(1) {
