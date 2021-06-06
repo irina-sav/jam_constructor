@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let hello = "hello";
+      const bye = "bye-bye";
+      function printLog(phrase) {
+        let startPhrase = "он сказал: ";
+        if (phrase == "hello") {
+          startPhrase += "Привет";
+        } else if (phrase == "bye-bye") {
+          startPhrase += "Пока";
+        } else if (phrase) {
+          startPhrase += "Пусто";
+        } else {
+          startPhrase += "Авада Кедавра";
+        }
+        return startPhrase + "!";
+      }
+      let say = printLog(0);
+      console.log(say);
+    </script>
+  </body>
+</html>
