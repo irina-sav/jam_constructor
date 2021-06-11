@@ -10,21 +10,33 @@
     <script>
       let hello = "hello";
       const bye = "bye-bye";
-      function printLog(phrase) {
-        let startPhrase = "он сказал: ";
-        if (phrase == "hello") {
+      let a = 5;
+      let b = "hi";
+      let c = undefined;
+      let d = true;
+      let f = null;
+      let g = NaN;
+      let j = 5.5;
+
+
+
+      function printLog(phrase, pen = 1, startPhrase = "он сказал: ") {
+        if (!phrase && !pen && !startPhrase) return "error";
+
+        // let startPhrase = "он сказал: ";
+        if (phrase == "hello" && pen == 10) {
           startPhrase += "Привет";
-        } else if (phrase == "bye-bye") {
+        } else if ((phrase == "bye-bye" && pen) || pen > 1) {
           startPhrase += "Пока";
-        } else if (phrase) {
+        } else if (phrase || !pen) {
           startPhrase += "Пусто";
         } else {
           startPhrase += "Авада Кедавра";
         }
         return startPhrase + "!";
       }
-      let say = printLog(0);
-      console.log(say);
+      let say = printLog(1, 0, "");
+      console.log(c);
     </script>
   </body>
 </html>
