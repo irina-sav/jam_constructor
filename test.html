@@ -8,6 +8,7 @@
   </head>
   <body>
     <script>
+      // Типы переменных, условия
       let hello = "hello";
       const bye = "bye-bye";
       let a = 5;
@@ -17,8 +18,6 @@
       let f = null;
       let g = NaN;
       let j = 5.5;
-
-
 
       function printLog(phrase, pen = 1, startPhrase = "он сказал: ") {
         if (!phrase && !pen && !startPhrase) return "error";
@@ -35,8 +34,39 @@
         }
         return startPhrase + "!";
       }
-      let say = printLog(1, 0, "");
-      console.log(c);
+      // let say = printLog(1, 0, "");
+      // console.log(c);
+
+      let items = [
+        "апельсин",
+        ["горький шоколад", "молочный шоколад"],
+        "слива",
+        "банан",
+        "смородина",
+      ];
+      let item0 = items[0];
+      console.log(items);
+      console.log(items.length);
+      console.log(item0[3]);
+      console.log(item0.length);
+
+      // let counter = 0;
+      // while (counter < items.length) {
+      //   console.log(items[counter]);
+      //   counter++;
+      // }
+
+      for (let i = 0; i < items.length; i++) {
+        if (i === 1) {
+          for (let t = 0; t < items[i].length; t++) {
+            console.log(items[i][t]);
+          }
+          // continue;
+        } 
+
+          console.log(items[i]);
+        
+      }
     </script>
   </body>
 </html>
