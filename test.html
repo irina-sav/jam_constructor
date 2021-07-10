@@ -37,18 +37,18 @@
       // let say = printLog(1, 0, "");
       // console.log(c);
 
-      let items = [
-        "апельсин",
-        ["горький шоколад", "молочный шоколад"],
-        "слива",
-        "банан",
-        "смородина",
-      ];
-      let item0 = items[0];
-      console.log(items);
-      console.log(items.length);
-      console.log(item0[3]);
-      console.log(item0.length);
+      // let items = [
+      //   "апельсин",
+      //   ["горький шоколад", "молочный шоколад"],
+      //   "слива",
+      //   "банан",
+      //   "смородина",
+      // ];
+      // let item0 = items[0];
+      // console.log(items);
+      // console.log(items.length);
+      // console.log(item0[3]);
+      // console.log(item0.length);
 
       // let counter = 0;
       // while (counter < items.length) {
@@ -56,17 +56,65 @@
       //   counter++;
       // }
 
-      for (let i = 0; i < items.length; i++) {
-        if (i === 1) {
-          for (let t = 0; t < items[i].length; t++) {
-            console.log(items[i][t]);
-          }
-          // continue;
-        } 
+      // for (let i = 0; i < items.length; i++) {
+      //   if (i === 1) {
+      //     for (let t = 0; t < items[i].length; t++) {
+      //       console.log(items[i][t]);
+      //     }
+      // continue;
+      //   }
 
-          console.log(items[i]);
-        
+      //     console.log(items[i]);
+
+      // }
+
+      // let variable = 2;
+
+      // switch (variable) {
+      //   case 6:
+      //     console.log("ШЕСТЬ");
+      //   case 2:
+      //     console.log("ДВА");
+      //     break;
+      //   case 2:
+      //     console.log("ТРИ");
+      //     break;
+      //   case 5:
+      //     console.log("ПЯТЬ");
+      //     break;
+      //   default:
+      //     console.log("НЕИЗВЕСТНО");
+      // }
+      let myObject = {
+        moscow: 77,
+        tula: 71,
+        kaluga: 41,
+        siberia: {
+          nsk: 54,
+          kemerovo: 42,
+          barnaul: 22,
+        },
+        ryazan: 62,
+      };
+      let counter = 0;
+
+      // console.log(myObject["tula"]);
+      // console.log(myObject["siberia"].nsk);
+      for (let itemKey in myObject) {
+        if (itemKey == "siberia") {
+          for (let itemKeySib in myObject.siberia) {
+            console.log(myObject.siberia[itemKeySib]);
+            counter++;
+            // if (itemKeySib == "kemerovo") {
+            //   break;
+            // }
+          }
+          continue;
+        }
+        console.log(myObject[itemKey]);
+        counter++;
       }
+      console.log("ВСЕГО ГОРОДОВ: " + counter);
     </script>
   </body>
 </html>
