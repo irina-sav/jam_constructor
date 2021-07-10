@@ -85,36 +85,75 @@
       //   default:
       //     console.log("НЕИЗВЕСТНО");
       // }
-      let myObject = {
-        moscow: 77,
-        tula: 71,
-        kaluga: 41,
-        siberia: {
-          nsk: 54,
-          kemerovo: 42,
-          barnaul: 22,
-        },
-        ryazan: 62,
-      };
-      let counter = 0;
+      // let myObject = {
+      //   moscow: 77,
+      //   tula: 71,
+      //   kaluga: 41,
+      //   siberia: {
+      //     nsk: 54,
+      //     kemerovo: 42,
+      //     barnaul: 22,
+      //   },
+      //   ryazan: 62,
+      // };
+      // let counter = 0;
 
-      // console.log(myObject["tula"]);
-      // console.log(myObject["siberia"].nsk);
-      for (let itemKey in myObject) {
-        if (itemKey == "siberia") {
-          for (let itemKeySib in myObject.siberia) {
-            console.log(myObject.siberia[itemKeySib]);
-            counter++;
-            // if (itemKeySib == "kemerovo") {
-            //   break;
-            // }
-          }
-          continue;
-        }
-        console.log(myObject[itemKey]);
-        counter++;
-      }
-      console.log("ВСЕГО ГОРОДОВ: " + counter);
+      // // console.log(myObject["tula"]);
+      // // console.log(myObject["siberia"].nsk);
+      // for (let itemKey in myObject) {
+      //   if (itemKey == "siberia") {
+      //     for (let itemKeySib in myObject.siberia) {
+      //       console.log(myObject.siberia[itemKeySib]);
+      //       counter++;
+      //       // if (itemKeySib == "kemerovo") {
+      //       //   break;
+      //       // }
+      //     }
+      //     continue;
+      //   }
+      //   console.log(myObject[itemKey]);
+      //   counter++;
+      // }
+      // console.log("ВСЕГО ГОРОДОВ: " + counter);
+
+      // let heSaid = "";
+      // let heConfirm = false;
+      // while (!heConfirm) {
+      //   if ((heConfirm = confirm("Хотите продолжить?"))) {
+      //     while (heSaid.length === 0) {
+      //       if ((heSaid = prompt("Введите имя"))) {
+      //         alert(`Ваше имя: ${heSaid}, спасибо!`);
+      //       } else {
+      //         console.log(`error 5, empty username field (${heSaid})`);
+      //         alert("Вы не ввели имя");
+      //       }
+      //     }
+      //   } else {
+      //     console.log("error 3, user declined request");
+      //     alert("Нужно согласиться!");
+      //   }
+      // }
+
+      // let result = confirm("agree?");
+      // alert(result);
+      // let total = prompt("напишите значение");
+      // alert(total);
+
+      // let interval = setInterval(() => {
+      //   console.log("ой!");
+      // }, 2000);
+
+      // setTimeout(() => {
+      //   clearInterval(interval);
+      //   console.log("ура!");
+      // }, 10000);
+
+      let thisDate = new Date(2021, 6, 10, 0, 0, 0, 0);
+      console.log(thisDate.getDate());
+      alert(thisDate);
+      console.log(thisDate.getSeconds());
+      console.log(thisDate.getTime());
+      console.log(thisDate.setFullYear());
     </script>
   </body>
 </html>
