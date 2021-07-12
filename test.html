@@ -5,8 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      body {
+        width: 100%;
+      }
+      .divForm {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        display: inline-block;
+      }
+    </style>
   </head>
-  <body>
+  <body style="height: 100vh">
+    <div id="one" class="divForm"></div>
+    <div id="two" class="divForm"></div>
+    <div id="three" class="divForm"></div>
     <script>
       // Типы переменных, условия
       let hello = "hello";
@@ -148,12 +165,43 @@
       //   console.log("ура!");
       // }, 10000);
 
-      let thisDate = new Date(2021, 6, 10, 0, 0, 0, 0);
-      console.log(thisDate.getDate());
-      alert(thisDate);
-      console.log(thisDate.getSeconds());
-      console.log(thisDate.getTime());
-      console.log(thisDate.setFullYear());
+      // let thisDate = new Date(2021, 6, 10, 0, 0, 0, 0);
+      // console.log(thisDate.getDate());
+      // alert(thisDate);
+      // console.log(thisDate.getSeconds());
+      // console.log(thisDate.getTime());
+      // console.log(thisDate.setFullYear());
+
+      // let myDoc = document;
+      // console.log(myDoc);
+
+      let divOne = document.getElementById("one");
+      divOne.style.backgroundColor = "aqua";
+      divOne.onclick = function (e) {
+        if (e.target.style.backgroundColor == "aqua") {
+          e.target.style.backgroundColor = "red";
+        } else {
+          e.target.style.backgroundColor = "aqua";
+        }
+      };
+      let myHtml = document.body;
+      console.log(myHtml);
+      myHtml.style.background = "yellow";
+      myHtml.onclick = function (e) {
+        console.log(e.target);
+        if (e.target == divOne) {
+          return;
+        }
+        if (myHtml.style.background == "yellow") {
+          myHtml.style.background = "green";
+        } else {
+          myHtml.style.background = "yellow";
+        }
+      };
+
+      // document.body.addEventListener("click", function () {
+      //   document.body.style.background = "blue";
+      // });
     </script>
   </body>
 </html>
