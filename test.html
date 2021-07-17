@@ -17,13 +17,21 @@
         height: 100px;
         background-color: aqua;
         display: inline-block;
+        text-align: center;
       }
+      /* #two {
+        border: black solid 5px;
+      }
+      #two:active {
+        text-transform: uppercase;
+        border: none;
+      } */
     </style>
   </head>
   <body style="height: 100vh">
-    <div id="one" class="divForm"></div>
-    <div id="two" class="divForm"></div>
-    <div id="three" class="divForm"></div>
+    <div id="one" class="divForm">один</div>
+    <div id="two" class="divForm">два</div>
+    <div id="three" class="divForm">три</div>
     <script>
       // Типы переменных, условия
       let hello = "hello";
@@ -178,10 +186,32 @@
       let divOne = document.getElementById("one");
       divOne.style.backgroundColor = "aqua";
       divOne.onclick = function (e) {
+        e.target.style.textTransform = "uppercase";
         if (e.target.style.backgroundColor == "aqua") {
           e.target.style.backgroundColor = "red";
         } else {
           e.target.style.backgroundColor = "aqua";
+        }
+      };
+      let divTwo = document.getElementById("two");
+      divTwo.style.border = "none";
+      divTwo.onclick = function (e) {
+        e.target.style.textTransform = "uppercase";
+        if (e.target.style.border == "none") {
+          e.target.style.border = "black solid 5px";
+        } else {
+          e.target.style.border = "none";
+        }
+      };
+
+      let divThree = document.getElementById("three");
+      divThree.style.transform = "scale(1)";
+      divThree.onclick = function (e) {
+        e.target.style.textTransform = "uppercase";
+        if (e.target.style.transform == "scale(1)") {
+          e.target.style.transform = "scale(2)";
+        } else {
+          e.target.style.transform = "scale(1)";
         }
       };
       let myHtml = document.body;
@@ -190,6 +220,12 @@
       myHtml.onclick = function (e) {
         console.log(e.target);
         if (e.target == divOne) {
+          return;
+        }
+        if (e.target == divTwo) {
+          return;
+        }
+        if (e.target == divThree) {
           return;
         }
         if (myHtml.style.background == "yellow") {
