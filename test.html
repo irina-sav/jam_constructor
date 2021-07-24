@@ -29,9 +29,12 @@
     </style>
   </head>
   <body style="height: 100vh">
-    <div id="one" class="divForm">один</div>
-    <div id="two" class="divForm">два</div>
-    <div id="three" class="divForm">три</div>
+    <div class="warp">
+      <div id="one" class="divForm">один</div>
+      <div id="two" class="divForm">два</div>
+      <div id="three" class="divForm">три</div>
+    </div>
+
     <script>
       // Типы переменных, условия
       let hello = "hello";
@@ -193,15 +196,23 @@
           e.target.style.backgroundColor = "aqua";
         }
       };
+
       let divTwo = document.getElementById("two");
       divTwo.style.border = "none";
       divTwo.onclick = function (e) {
-        e.target.style.textTransform = "uppercase";
-        if (e.target.style.border == "none") {
-          e.target.style.border = "black solid 5px";
-        } else {
-          e.target.style.border = "none";
-        }
+        console.log(e.target.style);
+        e.target.style.cssText =
+          "color:red; text-transform:uppercase; border: black solid 5px;";
+        // e.target.style.textTransform = "uppercase";
+        // e.target.setAttribute(
+        //   "style",
+        //   "color:red; background-color:grey; font-weight:bolder;"
+        // );
+        // if (e.target.style.border == "none") {
+        //   e.target.style.border = "black solid 5px";
+        // } else {
+        //   e.target.style.border = "none";
+        // }
       };
 
       let divThree = document.getElementById("three");
@@ -235,9 +246,29 @@
         }
       };
 
+      let divNum = document.getElementsByClassName("divForm");
+      console.log(divNum);
+
+      for (let divNum0 = 0; divNum0 < divNum.length; divNum0++) {
+        divNum[divNum0].style.backgroundColor = "red";
+      }
+
+      // for (let divNum0 in divNum) {
+      //   if (divNum0 === "length" || divNum0 === "item") {
+      //     continue;
+      //   }
+      //   console.log(divNum0);
+      //
+      // }
+
       // document.body.addEventListener("click", function () {
       //   document.body.style.background = "blue";
       // });
+
+      let divWarp = document.querySelectorAll(".warp > div");
+      for (let divWarp0 = 0; divWarp0 < divWarp.length; divWarp0++) {
+        divWarp[divWarp0].style.backgroundColor = "blue";
+      }
     </script>
   </body>
 </html>
