@@ -43,7 +43,6 @@ $fruits = [
     ],
 ];
 
-
 function printCode($code) {
     echo "<pre>";
     print_r($code);
@@ -51,10 +50,21 @@ function printCode($code) {
 };
 // printCode($fruits);
 
-foreach($fruits as $keyFruit => $oneFruit) {
-    foreach($oneFruit as $keyFruitParam => $oneFruitParam)
-    printCode($oneFruitParam);
-}
+// $fruitCost = 0;
+// $fruitsAmount = 0;
+
+// foreach($fruits as $keyFruit => $oneFruit) {
+//     $fruitCost = $oneFruit["price"]*$oneFruit["quantity"];
+//     printCode($fruitCost);
+//     $fruitsAmount += $fruitCost;
+// }
+// printCode($fruitsAmount);
+
+
+print_r($_GET);
+$calculation =0;
+$calculation = $_GET["first"] + $_GET["second"];
+print_r($calculation);
 
 
 
