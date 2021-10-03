@@ -42,7 +42,8 @@ require "controller.php";
     <br>
     <input type="text" name="text">
     <br>
-    <input type="submit">
+    <button  id="button">изменить цвет</button>
 </form>
+<script src="./test.js"></script>
 </body>
 </html>
