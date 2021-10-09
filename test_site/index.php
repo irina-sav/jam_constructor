@@ -44,6 +44,7 @@ require "controller.php";
     <br>
     <button  id="button">изменить цвет</button>
 </form>
+<div id="result"></div>
 <script src="./test.js"></script>
 </body>
 </html>
