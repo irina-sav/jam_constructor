@@ -37,7 +37,7 @@ require "controller.php";
 <div>
     <?= $content?>
 </div>
-<form action="" method="post">
+<form id="datachange" action="" method="post">
     <input type="color" name="color" value="<?=$color?>"> 
     <br>
     <input type="text" name="text">
@@ -45,6 +45,14 @@ require "controller.php";
     <button  id="button">изменить цвет</button>
 </form>
 <div id="result"></div>
+<form id="search" action="" method="post">
+    <input type="text" name="user" placeholder ="ВВедите имя"> 
+    <br>
+    
+    <button  id="buttonuser">найти пользователя</button>
+</form>
+<div id="searchresult"></div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./test.js"></script>
 </body>
 </html>
