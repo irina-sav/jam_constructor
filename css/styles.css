@@ -111,6 +111,11 @@ h1 {
   /*background-color: #e3aa5f;*/
   opacity: 0.7;
 }
+
+.filters__wrapper > div {
+  background-size: 101% 101%;
+  background-repeat: no-repeat;
+}
 .taste {
   width: 200px;
   height: 100px;
@@ -127,7 +132,7 @@ h1 {
 .taste:hover {
   border: black 2px solid;
 }
-#apple {
+/* #apple {
   background-image: url(../img/apple.jpg);
   background-size: 101% 101%;
   background-repeat: no-repeat;
@@ -175,7 +180,7 @@ h1 {
 #plum {
   background-image: url(../img/plum.jpg);
   background-size: 101% 101%;
-}
+} */
 
 .constructor_wrapper {
   display: flex;

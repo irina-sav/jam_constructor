@@ -22,9 +22,19 @@
 //     return false;
 // };
 
-$("#buttonuser").click(function(){
-    // let color = $("[name='color']").val();
-    // let text = $("[name='text']").val();
+// $("#buttonuser").click(function(){
+//     // let color = $("[name='color']").val();
+//     // let text = $("[name='text']").val();
+//     const url = "api.php";
+//     let params = $('#search').serialize();
+//     $.post(url, params, function(data){
+//         $("#searchresult").html(data);
+//     });
+
+// return false;
+// });
+
+$("#username").on("input", function(){
     const url = "api.php";
     let params = $('#search').serialize();
     $.post(url, params, function(data){

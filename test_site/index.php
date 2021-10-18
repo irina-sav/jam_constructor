@@ -46,7 +46,7 @@ require "controller.php";
 </form>
 <div id="result"></div>
 <form id="search" action="" method="post">
-    <input type="text" name="user" placeholder ="ВВедите имя"> 
+    <input id="username" type="text" name="user" placeholder ="ВВедите имя"> 
     <br>
     
     <button  id="buttonuser">найти пользователя</button>

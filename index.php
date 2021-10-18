@@ -1,3 +1,6 @@
+<?php
+require "controller.php"; 
+?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -53,18 +56,11 @@
     <section class="filters">
       <div class="container">
         <div class="filters__wrapper">
-          <div class="taste" id="apple">Яблоко</div>
-          <div class="taste" id="banana">банан</div>
-          <div class="taste" id="cherry">вишня</div>
-          <div class="taste" id="orange">апельсин</div>
-          <div class="taste" id="strawberry">клубника</div>
-          <div class="taste" id="kiwi">киви</div>
-          <div class="taste" id="pear">груша</div>
-          <div class="taste" id="chocolate">шоколад</div>
-          <div class="taste" id="berry">смородина</div>
-          <div class="taste" id="lemon">лимон</div>
-          <div class="taste" id="apricot">абрикос</div>
-          <div class="taste" id="plum">слива</div>
+          <?
+          foreach($components as $component) {
+            echo "<div class='taste' id='apple' style='background-image: url(../{$component["picture"]})'>{$component["name"]}</div>";
+          }
+        ?>
         </div>
       </div>
     </section>

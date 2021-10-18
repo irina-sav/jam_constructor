@@ -18,8 +18,18 @@ try {
             }
             $data = mysqli_query($bdConnect, "select `phone` from `customer` where `name` like '%{$_POST["user"]}%'");
             $printData = mysqli_fetch_all($data, MYSQLI_ASSOC);
-                        
-            exit(print_r($printData[0]['phone'], true));
+            if(empty($printData)){
+                throw new Exception("не найдено в БД");
+            }
+            foreach($printData as $oneData){
+                echo "<pre>";
+                print_r($oneData['phone']);
+                echo "</pre>";
+                }          
+            // exit(print_r($printData[0]['phone'], true));
+            // exit(print_r($oneData, true));
+            exit();
+          
         }   
         throw new Exception("Недостаточно символов имени");
     }
@@ -29,3 +39,4 @@ try {
 catch(Exception $e) {
     echo("error: " . $e->getMessage());
 } //вместо Ecxeption можно использовать Throwable
+ 
