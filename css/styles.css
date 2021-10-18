@@ -132,55 +132,7 @@ h1 {
 .taste:hover {
   border: black 2px solid;
 }
-/* #apple {
-  background-image: url(../img/apple.jpg);
-  background-size: 101% 101%;
-  background-repeat: no-repeat;
-}
-#banana {
-  background-image: url(../img/banana.jpeg);
-  background-size: 42% 62%;
-}
-#cherry {
-  background-image: url(../img/cherry.jpg);
-  background-size: 101% 101%;
-}
-#orange {
-  background-image: url(../img/orange.jpg);
-  background-size: 101% 101%;
-}
-#strawberry {
-  background-image: url(../img/strawberry.jpg);
-  background-size: 101% 101%;
-}
-#kiwi {
-  background-image: url(../img/kiwi.jpg);
-  background-size: 101% 101%;
-}
-#pear {
-  background-image: url(../img/pear.jpg);
-  background-size: 101% 101%;
-}
-#chocolate {
-  background-image: url(../img/chocolate.jpg);
-  background-size: 101% 101%;
-}
-#berry {
-  background-image: url(../img/berry.jpg);
-  background-size: 101% 101%;
-}
-#lemon {
-  background-image: url(../img/lemon.jpg);
-  background-size: 101% 101%;
-}
-#apricot {
-  background-image: url(../img/apricot.jpg);
-  background-size: 101% 101%;
-}
-#plum {
-  background-image: url(../img/plum.jpg);
-  background-size: 101% 101%;
-} */
+
 
 .constructor_wrapper {
   display: flex;
@@ -204,30 +156,22 @@ h1 {
   display: block;
   left: -67px;
   z-index: -1;
-  bottom: -18px;
+  bottom: -84px;
   background: url(../img/fff.jpg);
 }
 .jamjar .taste:nth-child(1) {
-  background-image: url(с);
+  background-image: url(../img/plum.jpg);
   background-size: 101% 101%;
   font-size: 0;
-  /* width: 100px; */
-  /* height: 50px;*/
+  width: 200px;
+  height: 100px;
 }
 .jamjar .taste:nth-child(2) {
   background-image: url(../img/chocolate.jpg);
   background-size: 101% 101%;
   font-size: 0;
-  /* width: 100px; */
-  /* height: 50px;*/
-}
-
-.jamjar .taste:nth-child(3) {
-  background-image: url(../img/orange.jpg);
-  background-size: 101% 101%;
-  font-size: 0;
-  /* width: 100px; */
-  /* height: 50px;*/
+  width: 200px;
+  height: 100px;
 }
 
 .final__choice input {

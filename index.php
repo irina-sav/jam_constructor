@@ -71,7 +71,7 @@ require "controller.php";
             <div class="jamjar">
               <div class="taste">1 слой</div>
               <div class="taste">2 слой</div>
-              <div class="taste">3 слой</div>
+              
             </div>
             <div class="final__choice">
               <input type="text" placeholder="Введите ваше название" />
