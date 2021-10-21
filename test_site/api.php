@@ -21,13 +21,10 @@ try {
             if(empty($printData)){
                 throw new Exception("не найдено в БД");
             }
-            foreach($printData as $oneData){
-                echo "<pre>";
-                print_r($oneData['phone']);
-                echo "</pre>";
-                }          
-            // exit(print_r($printData[0]['phone'], true));
-            // exit(print_r($oneData, true));
+            foreach($printData as $oneData) {
+                echo $oneData['phone'] . "<br>";
+            }
+
             exit();
           
         }   

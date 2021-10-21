@@ -128,11 +128,12 @@ h1 {
   text-transform: uppercase;
   font-weight: 600;
   border-radius: 10%;
-}
+  background-size: 101% 101%;
+  color:white;
+ }
 .taste:hover {
   border: black 2px solid;
 }
-
 
 .constructor_wrapper {
   display: flex;
@@ -158,20 +159,6 @@ h1 {
   z-index: -1;
   bottom: -84px;
   background: url(../img/fff.jpg);
-}
-.jamjar .taste:nth-child(1) {
-  background-image: url(../img/plum.jpg);
-  background-size: 101% 101%;
-  font-size: 0;
-  width: 200px;
-  height: 100px;
-}
-.jamjar .taste:nth-child(2) {
-  background-image: url(../img/chocolate.jpg);
-  background-size: 101% 101%;
-  font-size: 0;
-  width: 200px;
-  height: 100px;
 }
 
 .final__choice input {

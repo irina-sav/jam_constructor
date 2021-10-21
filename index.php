@@ -56,11 +56,11 @@ require "controller.php";
     <section class="filters">
       <div class="container">
         <div class="filters__wrapper">
-          <?
-          foreach($components as $component) {
-            echo "<div class='taste' id='apple' style='background-image: url(../{$component["picture"]})'>{$component["name"]}</div>";
-          }
-        ?>
+          <?php foreach($components as $component) { ?>
+            <div class='taste tasteStack'  data-id='<?=$component["id"]?>' style='background-image: url(../<?=$component["picture"]?>)'>
+             <?=$component["name"]?>
+            </div>
+          <?php }?>
         </div>
       </div>
     </section>
@@ -69,9 +69,8 @@ require "controller.php";
         <div class="constructor_wrapper">
           <div class="customer__choice">
             <div class="jamjar">
-              <div class="taste">1 слой</div>
-              <div class="taste">2 слой</div>
               
+                           
             </div>
             <div class="final__choice">
               <input type="text" placeholder="Введите ваше название" />
@@ -109,6 +108,7 @@ require "controller.php";
         <p>адрес</p>
       </div>
     </footer>
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
