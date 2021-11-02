@@ -73,7 +73,7 @@ require "controller.php";
                            
             </div>
             <div class="final__choice">
-              <input type="text" placeholder="Введите ваше название" />
+              <input id="jamName" type="text" placeholder="Введите ваше название" />
               <button type="submit" class="choice_button">авада кедавра</button>
             </div>
           </div>

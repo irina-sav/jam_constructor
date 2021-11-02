@@ -1,39 +1,41 @@
 let jar = [];
-let componentCount = 0;
-function jarAdd(component){
-    if(componentCount < 1) {
-       for(let componentItem in jar){
+
+function  componentCounter(){
+    let componentCount = 0;
+    for(let componentItem in jar){
         componentCount++;
     }
-    console.log(componentCount);
+    return componentCount;
+}
+function jarAdd(component){
+    if(componentCounter() < 2 && jar[component.id] === undefined) {
         jar[component.id] = component;
-        return true;
     }
     
-    return false;
 }
 function jarRender(){
     console.log(jar);
     let html = "";
+    let jamName = "";
     for(let component in jar){
-        html += `<div class="taste" style="background-image: url(${jar[component].picture})">${jar[component].name}</div>`;
+        html += 
+        `<div class="taste jarTaste" style="background-image: url(${jar[component].picture})" onclick="jarRemove(${jar[component].id})">${jar[component].name}</div>`;
+        jamName += `${jar[component].name} `;
     }
     $(".jamjar").html(html);
+    $("#jamName").val(jamName.trim());
 }
+
+
 
 $(".tasteStack").on("click", function(){    
     let params = {componentId: $(this).data("id")};
     serverRequest(function(data){
-       if(jarAdd(data)) {
-            jarRender();
-       }
-       
+       jarAdd(data);
+       jarRender();
+          
     }, params);
-    // $.post(url, params, function(data){
-    //     console.log(data);
-    //     let dataObject = JSON.parse(data);
-    //     $(".jamjar").html(`<div class="taste" style="background-image: url(${dataObject.picture})">${dataObject.name}</div>`);
-    // });
+
 });
 
 function serverRequest(callBackFunction, params = null){
@@ -44,3 +46,10 @@ function serverRequest(callBackFunction, params = null){
         callBackFunction(dataObject, params = null);
     });
 }
+
+function jarRemove(componentId){
+    delete jar[componentId];
+     jarRender();
+}
+
+ 
