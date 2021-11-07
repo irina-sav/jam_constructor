@@ -1,13 +1,15 @@
 <?php
 try {
-    if(@$_POST["componentId"]){
-        if(is_numeric($_POST["componentId"])){
-            $bdConnect = mysqli_connect("31.31.196.95", "u1433184_jam", "hG0uI8rU9ksS3f", "u1433184_jambase");
-            mysqli_query($bdConnect, "SET NAMES utf8");
+    if(!empty($_POST)){
 
-            if (!$bdConnect) {
-                throw new Exception('Ошибка подключения (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
-            }
+        $bdConnect = mysqli_connect("31.31.196.95", "u1433184_jam", "hG0uI8rU9ksS3f", "u1433184_jambase");
+        mysqli_query($bdConnect, "SET NAMES utf8");
+
+        if (!$bdConnect) {
+            throw new Exception('Ошибка подключения (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
+        }
+
+        if(is_numeric($_POST["componentId"])){
             $data = mysqli_query($bdConnect, "select * from `components` where `id` = {$_POST["componentId"]}");
             $printData = mysqli_fetch_assoc($data);
             if(empty($printData)){
@@ -16,8 +18,23 @@ try {
            
             exit(json_encode($printData, 256));
           
+        }
+        elseif(@$_POST["jarName"] && $_POST["jarComponents"]){
+            $jarData = array_filter($_POST["jarComponents"], function($e){
+                return !empty($e);
+            });
+            array_multisort($jarData, SORT_ASC);
+                    
+            $data = mysqli_query($bdConnect, "insert into `jams` (`name`, `component_1`, `component_2`) values ('{$_POST["jarName"]}', {$jarData[0]["id"]}, {$jarData[1]["id"]})");
+            $printData = mysqli_insert_id($bdConnect);
+            if(empty($printData)){
+                throw new Exception("ошибка при сохранении в БД");
+            }
+           
+            exit(json_encode($printData, 256));
+          
         }   
-        throw new Exception("некорректное значение componentId");
+        throw new Exception("некорректное значение полей запроса");
     }
     throw new Exception("некорректный запрос");
 

@@ -73,8 +73,8 @@ require "controller.php";
                            
             </div>
             <div class="final__choice">
-              <input id="jamName" type="text" placeholder="Введите ваше название" />
-              <button type="submit" class="choice_button">авада кедавра</button>
+              <input id="jamName" data-componentsList="" type="text" placeholder="Введите ваше название" />
+              <button id="addToTrash" class="choice_button">авада кедавра</button>
             </div>
           </div>
           <div class="sidebar__trash">
@@ -84,7 +84,7 @@ require "controller.php";
               <p>ВСЕГО</p>
               <input type="text" placeholder="сумма заказа" />
             </div>
-            <button type="submit" class="choice_button">оформить заказ</button>
+            <button id="placeOrder" class="choice_button">оформить заказ</button>
           </div>
         </div>
       </div>
