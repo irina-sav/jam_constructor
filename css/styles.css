@@ -180,16 +180,32 @@ h1 {
   background-color: #e3aa5f;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 19px;
+  font-size: 14px;
+  margin: 20px 0;
 }
 .sidebar__trash {
-  width: 30%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   border: black 2px solid;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.sidebar__trash input {
+  width: 40px;
+  margin: 0 10px;
+}
+.sidebar__trash li {
+  margin: 10px 0;
+  border: orange 1px solid;
+  padding: 2px;
+}
+
+.sidebar__trash li span {
+  color:red;
+  font-weight: 900;
 }
 
 .counter {

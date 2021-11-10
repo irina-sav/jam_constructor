@@ -1,6 +1,5 @@
 <?php
-require "controller.php"; 
-?>
+require 'controller.php'; ?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -56,11 +55,15 @@ require "controller.php";
     <section class="filters">
       <div class="container">
         <div class="filters__wrapper">
-          <?php foreach($components as $component) { ?>
-            <div class='taste tasteStack'  data-id='<?=$component["id"]?>' style='background-image: url(../<?=$component["picture"]?>)'>
-             <?=$component["name"]?>
+          <?php foreach ($components as $component) { ?>
+            <div class='taste tasteStack'  data-id='<?= $component[
+                'id'
+            ] ?>' style='background-image: url(../<?= $component[
+    'picture'
+] ?>)'>
+             <?= $component['name'] ?>
             </div>
-          <?php }?>
+          <?php } ?>
         </div>
       </div>
     </section>
@@ -79,7 +82,11 @@ require "controller.php";
           </div>
           <div class="sidebar__trash">
             <h2>Корзина</h2>
-            <div class="counter">1</div>
+            <ul>
+              <li> <input type="number" min="1" max="100" value=""><span>x</span></li>
+              <li></li>
+              <li></li>
+            </ul>
             <div class="total_amount">
               <p>ВСЕГО</p>
               <input type="text" placeholder="сумма заказа" />

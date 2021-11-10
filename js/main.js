@@ -12,7 +12,8 @@ $(".tasteStack").on("click", function () {
 $("#addToTrash").on("click", function () {
   let params = { jarName: $("#jamName").val().trim(), jarComponents: jar };
   serverRequest(function (data) {
-    addTrash();
+    addTrash(data);
+    trashRender();
     console.log(data);
   }, params);
 });
@@ -57,7 +58,14 @@ function jarRemove(componentId) {
   delete jar[componentId];
   jarRender();
 }
-function addTrash() {
-  trash = $("#jamName").data("componentsList").split(",");
+function addTrash(jamId) {
+  let jamName = $("#jamName").val();
+  trash.push({ jamId: jamId, jamName: jamName, jamQty: 1 });
 }
-
+function trashRender() {
+  let htmlItem = "";
+  for (let trashItem in trash) {
+    htmlItem += `<li data-jamId="${trash[trashItem].jamId}">${trash[trashItem].jamName}<input type="number" min="1" max="100" value="${trash[trashItem].jamQty}"><span>x</span></li>`;
+  }
+  $(".sidebar__trash ul").html(htmlItem);
+}
