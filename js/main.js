@@ -1,5 +1,5 @@
 let jar = [];
-let trash = [];
+let trash = {};
 
 $(".tasteStack").on("click", function () {
   let params = { componentId: $(this).data("id") };
@@ -60,17 +60,18 @@ function jarRemove(componentId) {
 }
 function addTrash(jamId) {
   let jamName = $("#jamName").val();
-  trash.push({ jamId: jamId, jamName: jamName, jamQty: 1 });
+  trash[jamId] = {jamId: jamId, jamName: jamName, jamQty: 1 };
 }
 function trashRender() {
-  let htmlItem = "";
+  let htmlItems = "";
+  console.log(trash);
   for (let trashItem in trash) {
-    htmlItem += `<li data-jamId="${trash[trashItem].jamId}">${trash[trashItem].jamName}<input type="number" min="1" max="100" value="${trash[trashItem].jamQty}"><span onclick="trashRemove(this)">x</span></li>`;
+    htmlItems += `<li data-jamId="${trash[trashItem].jamId}">${trash[trashItem].jamName}<input type="number" min="1" max="100" value="${trash[trashItem].jamQty}"><span onclick="trashRemove(this)">x</span></li>`;
   }
-  $(".sidebar__trash ul").html(htmlItem);
+  $(".sidebar__trash ul").html(htmlItems);
 }
 function trashRemove(htmlItem) {
-  console.log(htmlItem.parent.getAttribute("data-jamId"));
-  // delete trash[htmlItem];
+  console.log(trash);
+  delete trash[htmlItem.parentElement.attributes['data-jamId'].value];
   trashRender();
 }

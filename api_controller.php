@@ -18,7 +18,7 @@ try {
             );
         }
 
-        if (is_numeric($_POST['componentId'])) {
+        if (is_numeric(@$_POST['componentId'])) {
             $data = mysqli_query(
                 $bdConnect,
                 "select * from `components` where `id` = {$_POST['componentId']}"

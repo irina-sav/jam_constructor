@@ -206,6 +206,7 @@ h1 {
 .sidebar__trash li span {
   color:red;
   font-weight: 900;
+  cursor: pointer;
 }
 
 .counter {
