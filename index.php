@@ -83,9 +83,8 @@ require 'controller.php'; ?>
           <div class="sidebar__trash">
             <h2>Корзина</h2>
             <ul>
-              <li> <input type="number" min="1" max="100" value=""><span>x</span></li>
-              <li></li>
-              <li></li>
+         
+             
             </ul>
             <div class="total_amount">
               <p>ВСЕГО</p>

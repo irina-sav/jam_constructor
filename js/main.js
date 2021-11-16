@@ -65,7 +65,12 @@ function addTrash(jamId) {
 function trashRender() {
   let htmlItem = "";
   for (let trashItem in trash) {
-    htmlItem += `<li data-jamId="${trash[trashItem].jamId}">${trash[trashItem].jamName}<input type="number" min="1" max="100" value="${trash[trashItem].jamQty}"><span>x</span></li>`;
+    htmlItem += `<li data-jamId="${trash[trashItem].jamId}">${trash[trashItem].jamName}<input type="number" min="1" max="100" value="${trash[trashItem].jamQty}"><span onclick="trashRemove(this)">x</span></li>`;
   }
   $(".sidebar__trash ul").html(htmlItem);
+}
+function trashRemove(htmlItem) {
+  console.log(htmlItem.parent.getAttribute("data-jamId"));
+  // delete trash[htmlItem];
+  trashRender();
 }
