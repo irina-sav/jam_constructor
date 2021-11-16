@@ -58,10 +58,16 @@ function jarRemove(componentId) {
   delete jar[componentId];
   jarRender();
 }
-function addTrash(jamId) {
-  let jamName = $("#jamName").val();
-  trash[jamId] = {jamId: jamId, jamName: jamName, jamQty: 1 };
+function addTrash(jamData) {
+  // let jamName = $("#jamName").val();
+  trash[jamData.id] = {
+    jamId: jamData.id,
+    jamName: jamData.name,
+    jamQty: 1,
+    jamPrice: jamData.price,
+  };
 }
+
 function trashRender() {
   let htmlItems = "";
   console.log(trash);
@@ -72,6 +78,6 @@ function trashRender() {
 }
 function trashRemove(htmlItem) {
   console.log(trash);
-  delete trash[htmlItem.parentElement.attributes['data-jamId'].value];
+  delete trash[htmlItem.parentElement.attributes["data-jamId"].value];
   trashRender();
 }

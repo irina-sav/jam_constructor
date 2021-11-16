@@ -55,6 +55,11 @@ try {
                         mysqli_error($bdConnect)
                 );
             }
+            $data = mysqli_query(
+                $bdConnect,
+                "SELECT j.id, j.name, (c1.price + c2.price) as price FROM `jams` j inner join `components` c1 ON j.component_1 = c1.id inner join `components` c2 ON j.component_2 = c2.id WHERE j.id = $printData";
+            )
+            $printData = @mysqli_fetch_assoc($data);
 
             exit(json_encode($printData, 256));
         }
