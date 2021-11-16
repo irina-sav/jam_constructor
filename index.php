@@ -88,7 +88,7 @@ require 'controller.php'; ?>
             </ul>
             <div class="total_amount">
               <p>ВСЕГО</p>
-              <input type="text" placeholder="сумма заказа" />
+                <strong id="fullPrice"></strong>
             </div>
             <button id="placeOrder" class="choice_button">оформить заказ</button>
           </div>
