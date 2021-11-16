@@ -70,14 +70,23 @@ function addTrash(jamData) {
 
 function trashRender() {
   let htmlItems = "";
+  let sum = "";
   console.log(trash);
   for (let trashItem in trash) {
-    htmlItems += `<li data-jamId="${trash[trashItem].jamId}">${trash[trashItem].jamName}<input type="number" min="1" max="100" value="${trash[trashItem].jamQty}"><span onclick="trashRemove(this)">x</span></li>`;
+    htmlItems += `<li data-jamId="${trash[trashItem].jamId}">${trash[trashItem].jamName}<input type="number" min="1" max="100" oninput="trashReCounter(this)" value="${trash[trashItem].jamQty}"><span onclick="trashRemove(this)">x</span></li>`;
+    sum += (trash[trashItem].jamQty * trash[trashItem].jamPrice);
   }
   $(".sidebar__trash ul").html(htmlItems);
+  $("#fullPrice").html(sum);
 }
+
 function trashRemove(htmlItem) {
   console.log(trash);
   delete trash[htmlItem.parentElement.attributes["data-jamId"].value];
   trashRender();
+}
+
+function trashReCounter(counter) {
+  console.log(counter.value);
+  trash[counter.parentElement.attributes['data-jamId'].value].jamQty = counter.value;
 }
