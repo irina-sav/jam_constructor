@@ -70,7 +70,7 @@
 .description {
   padding-top: 70px;
   text-align: center;
-  background-color: #e3aa5f;
+  /*background-color: #e3aa5f;*/
   opacity: 0.7;
   width: 77%;
   margin: 0 auto;
@@ -103,13 +103,18 @@ h1 {
   width: 100%;
   flex-wrap: wrap;
   display: flex;
-  padding: 20px 0 27px;
-  width: 77%;
+  padding: 20px 0 123px;
+  width: 55%;
   margin: 0 auto;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: #e3aa5f;
+  /*background-color: #e3aa5f;*/
   opacity: 0.7;
+}
+
+.filters__wrapper > div {
+  background-size: 101% 101%;
+  background-repeat: no-repeat;
 }
 .taste {
   width: 200px;
@@ -122,61 +127,18 @@ h1 {
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 600;
-}
-#apple {
-  background-image: url(../img/apple.jpg);
+  border-radius: 10%;
   background-size: 101% 101%;
-  background-repeat: no-repeat;
-}
-#banana {
-  background-image: url(../img/banana.jpeg);
-  background-size: 42% 62%;
-}
-#cherry {
-  background-image: url(../img/cherry.jpg);
-  background-size: 101% 101%;
-}
-#orange {
-  background-image: url(../img/orange.jpg);
-  background-size: 101% 101%;
-}
-#strawberry {
-  background-image: url(../img/strawberry.jpg);
-  background-size: 101% 101%;
-}
-#kiwi {
-  background-image: url(../img/kiwi.jpg);
-  background-size: 101% 101%;
-}
-#pear {
-  background-image: url(../img/pear.jpg);
-  background-size: 101% 101%;
-}
-#chocolate {
-  background-image: url(../img/chocolate.jpg);
-  background-size: 101% 101%;
-}
-#berry {
-  background-image: url(../img/berry.jpg);
-  background-size: 101% 101%;
-}
-#lemon {
-  background-image: url(../img/lemon.jpg);
-  background-size: 101% 101%;
-}
-#apricot {
-  background-image: url(../img/apricot.jpg);
-  background-size: 101% 101%;
-}
-#plum {
-  background-image: url(../img/plum.jpg);
-  background-size: 101% 101%;
+  color:white;
+ }
+.taste:hover {
+  border: black 2px solid;
 }
 
 .constructor_wrapper {
   display: flex;
   flex-direction: row;
-  background-color: #e3aa5f;
+  /*background-color: #e3aa5f;*/
   opacity: 0.7;
   width: 77%;
   margin: 0 auto;
@@ -190,35 +152,13 @@ h1 {
 .jamjar:before {
   content: "";
   position: absolute;
-  width: 279px;
-  height: 380px;
+  width: 351px;
+  height: 494px;
   display: block;
-  left: -37px;
+  left: -67px;
   z-index: -1;
-  bottom: -10px;
-  background: url(../img/customer_choice_fon.png);
-}
-.jamjar .taste:nth-child(1) {
-  background-image: url(../img/plum.jpg);
-  background-size: 101% 101%;
-  font-size: 0;
-  /* width: 100px; */
-  /* height: 50px;*/
-}
-.jamjar .taste:nth-child(2) {
-  background-image: url(../img/chocolate.jpg);
-  background-size: 101% 101%;
-  font-size: 0;
-  /* width: 100px; */
-  /* height: 50px;*/
-}
-
-.jamjar .taste:nth-child(3) {
-  background-image: url(../img/orange.jpg);
-  background-size: 101% 101%;
-  font-size: 0;
-  /* width: 100px; */
-  /* height: 50px;*/
+  bottom: -84px;
+  background: url(../img/fff.jpg);
 }
 
 .final__choice input {
@@ -240,10 +180,46 @@ h1 {
   background-color: #e3aa5f;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 19px;
+  font-size: 14px;
+  margin: 20px 0;
 }
 .sidebar__trash {
-  width: 30%;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: black 2px solid;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.sidebar__trash input {
+  width: 40px;
+  margin: 0 10px;
+}
+.sidebar__trash li {
+  margin: 10px 0;
+  border: orange 1px solid;
+  padding: 2px;
+}
+
+.sidebar__trash li span {
+  color:red;
+  font-weight: 900;
+}
+
+.counter {
+  width: 100px;
+  height: 100px;
+  border: black 2px solid;
+}
+
+.total_amount {
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar__trash .choice_button {
+  width: 70%;
 }
 .final__choice {
   display: flex;
@@ -251,7 +227,7 @@ h1 {
   justify-content: space-around;
 }
 .ready__jam {
-  background-color: #e3aa5f;
+  /*background-color: #e3aa5f;*/
   opacity: 0.7;
   width: 77%;
   margin: 0 auto;
@@ -284,13 +260,17 @@ h1 {
   padding-bottom: 30px;
   display: flex;
   justify-content: space-around;
-  background-color: #e3aa5f;
+  /*background-color: #e3aa5f;*/
   opacity: 0.7;
   width: 77%;
   margin: 0 auto;
 }
 .footer__contacts a {
   text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+.footer__contacts p {
   color: black;
   font-weight: 700;
 }

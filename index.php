@@ -1,3 +1,5 @@
+<?php
+require 'controller.php'; ?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -53,18 +55,15 @@
     <section class="filters">
       <div class="container">
         <div class="filters__wrapper">
-          <div class="taste" id="apple">Яблоко</div>
-          <div class="taste" id="banana">банан</div>
-          <div class="taste" id="cherry">вишня</div>
-          <div class="taste" id="orange">апельсин</div>
-          <div class="taste" id="strawberry">клубника</div>
-          <div class="taste" id="kiwi">киви</div>
-          <div class="taste" id="pear">груша</div>
-          <div class="taste" id="chocolate">шоколад</div>
-          <div class="taste" id="berry">смородина</div>
-          <div class="taste" id="lemon">лимон</div>
-          <div class="taste" id="apricot">абрикос</div>
-          <div class="taste" id="plum">слива</div>
+          <?php foreach ($components as $component) { ?>
+            <div class='taste tasteStack'  data-id='<?= $component[
+                'id'
+            ] ?>' style='background-image: url(../<?= $component[
+    'picture'
+] ?>)'>
+             <?= $component['name'] ?>
+            </div>
+          <?php } ?>
         </div>
       </div>
     </section>
@@ -73,16 +72,26 @@
         <div class="constructor_wrapper">
           <div class="customer__choice">
             <div class="jamjar">
-              <div class="taste">1 слой</div>
-              <div class="taste">2 слой</div>
-              <div class="taste">3 слой</div>
+              
+                           
             </div>
             <div class="final__choice">
-              <input type="text" placeholder="Введите ваше название" />
-              <button type="submit" class="choice_button">авада кедавра</button>
+              <input id="jamName" data-componentsList="" type="text" placeholder="Введите ваше название" />
+              <button id="addToTrash" class="choice_button">авада кедавра</button>
             </div>
           </div>
-          <div class="sidebar__trash">корзина</div>
+          <div class="sidebar__trash">
+            <h2>Корзина</h2>
+            <ul>
+         
+             
+            </ul>
+            <div class="total_amount">
+              <p>ВСЕГО</p>
+              <input type="text" placeholder="сумма заказа" />
+            </div>
+            <button id="placeOrder" class="choice_button">оформить заказ</button>
+          </div>
         </div>
       </div>
     </section>
@@ -99,10 +108,13 @@
     <footer>
       <div class="footer__contacts">
         <a href="tel: +79153560935">+7 915 356 09 35</a>
-        <a href="https://www.instagram.com/maminy_nishtyaki/"
-          >@maminy_nishtyaki</a
-        >
+        <a href="https://www.instagram.com/maminy_nishtyaki/">
+          @maminy_nishtyaki
+        </a>
+        <p>адрес</p>
       </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,3 @@
+<?php
+
+$name = 'hi, Irina!';
