@@ -38,6 +38,21 @@ require 'controller.php'; ?>
         </div>
       </div>
     </header>
+    <div id="orderPopUp">
+      <form action="">
+        <h4>Ваш заказ:</h4>
+        <ul>
+         
+        </ul>
+        <input type="text" name="trashItems" hidden>
+        <div><input type="text" placeholder="Как в вам обращаться" name="name"  required></div>
+        <div><input type="tel" placeholder="+79999999999" pattern="\+7[0-9]{10}" name="phone" required></div>
+        <div><input type="email" placeholder="test@test.com" name="email" required></div>
+        <div><textarea placeholder="Комментарий  к заказу"></textarea></div>
+        <div><input type="submit" value="Заказать"></div>
+        
+      </form>
+    </div>
     <section class="description">
       <div class="container">
         <h1>Мастерская варенья</h1>
@@ -77,7 +92,8 @@ require 'controller.php'; ?>
             </div>
             <div class="final__choice">
               <input id="jamName" data-componentsList="" type="text" placeholder="Введите ваше название" />
-              <button id="addToTrash" class="choice_button">авада кедавра</button>
+              <button id="addToTrash" class="choice_button">В корзину</button>
+              <button id="clearJar" class="choice_button">Очистить</button>
             </div>
           </div>
           <div class="sidebar__trash">
@@ -87,7 +103,7 @@ require 'controller.php'; ?>
              
             </ul>
             <div class="total_amount">
-              <p>ВСЕГО</p>
+              <p>ВСЕГО: </p>
                 <strong id="fullPrice"></strong>
             </div>
             <button id="placeOrder" class="choice_button">оформить заказ</button>

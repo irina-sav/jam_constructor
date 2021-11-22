@@ -40,26 +40,30 @@ try {
                 "select `id` from `jams` where `name`= '{$_POST['jarName']}'"
             );
             $printData = @mysqli_fetch_assoc($data)['id'];
-            if (!empty($printData)) {
-                exit(json_encode($printData, 256));
+            if (empty($printData)) {
+                $data = mysqli_query(
+                    $bdConnect,
+                    "insert into `jams` (`name`, `component_1`, `component_2`) values ('{$_POST['jarName']}', {$jarData[0]['id']}, {$jarData[1]['id']})"
+                );
+                $printData = mysqli_insert_id($bdConnect);
+                if (empty($printData)) {
+                    throw new Exception(
+                        'ошибка при сохранении в БД. SQL error: ' .
+                            mysqli_error($bdConnect)
+                    );
+                }
             }
-
             $data = mysqli_query(
                 $bdConnect,
-                "insert into `jams` (`name`, `component_1`, `component_2`) values ('{$_POST['jarName']}', {$jarData[0]['id']}, {$jarData[1]['id']})"
+                "SELECT j.id, j.name, (c1.price + c2.price) as price FROM `jams` j inner join `components` c1 ON j.component_1 = c1.id inner join `components` c2 ON j.component_2 = c2.id WHERE j.id = $printData"
             );
-            $printData = mysqli_insert_id($bdConnect);
+            $printData = @mysqli_fetch_all($data, MYSQLI_ASSOC)[0];
+
             if (empty($printData)) {
                 throw new Exception(
-                    'ошибка при сохранении в БД. SQL error: ' .
-                        mysqli_error($bdConnect)
+                    'ошибка при запросе. SQL error: ' . mysqli_error($bdConnect)
                 );
             }
-            $data = mysqli_query(
-                $bdConnect,
-                "SELECT j.id, j.name, (c1.price + c2.price) as price FROM `jams` j inner join `components` c1 ON j.component_1 = c1.id inner join `components` c2 ON j.component_2 = c2.id WHERE j.id = $printData";
-            )
-            $printData = @mysqli_fetch_assoc($data);
 
             exit(json_encode($printData, 256));
         }
