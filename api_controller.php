@@ -76,33 +76,66 @@ try {
 
             $data = mysqli_query(
                 $bdConnect,
-                "select `id` from `customer` where `phone`= '{$_POST['phone']}' or `email` = '{$_POST['email']}"
+                "select `id` from `customer` where `phone`= '{$_POST['phone']}' or `email` = '{$_POST['email']}'"
             );
-            $printData = @mysqli_fetch_assoc($data);
-            print_r($printData);
-            exit();
-            if (empty($printData)) {
+            $customerId = @mysqli_fetch_assoc($data)['id'];
+
+            if (empty($customerId)) {
                 $data = mysqli_query(
                     $bdConnect,
                     "insert into `customer` (`name`, `phone`, `email`) values ('{$_POST['name']}', '{$_POST['phone']}','{$_POST['email']}')"
                 );
-                $printData = mysqli_insert_id($bdConnect);
-                if (empty($printData)) {
+                $customerId = mysqli_insert_id($bdConnect);
+                if (empty($customerId)) {
                     throw new Exception(
                         'ошибка при сохранении в БД. SQL error: ' .
                             mysqli_error($bdConnect)
                     );
                 }
             }
-            exit(
-                json_encode(
-                    [
-                        'customer' => $printData,
-                        'trash' => print_r($trashItems, true),
-                    ],
-                    256
-                )
+            $jamsIds = implode(',', array_keys($trashItems));
+            $orderAmount = mysqli_query(
+                $bdConnect,
+                "SELECT SUM(c1.price + c2.price) as amount FROM `jams` j inner join `components` c1 ON j.component_1 = c1.id inner join `components` c2 ON j.component_2 = c2.id WHERE j.id IN ({$jamsIds});"
             );
+            $orderAmountValue = @mysqli_fetch_assoc($orderAmount)['amount'];
+
+            $orderSave = mysqli_query(
+                $bdConnect,
+                "insert into `orders` (`customer`, `amount`, `comment`) values ('{$customerId}', '{$orderAmountValue}','{$_POST['comment']}')"
+            );
+            $orderSaveId = mysqli_insert_id($bdConnect);
+            if (empty($orderSaveId)) {
+                throw new Exception(
+                    'ошибка при сохранении в БД. SQL error: ' .
+                        mysqli_error($bdConnect)
+                );
+            }
+
+            foreach ($trashItems as $trashItem) {
+                $data = mysqli_query(
+                    $bdConnect,
+                    "select `id` from `boxes` where `jam` = '{$trashItem['jamId']}' and `quantity` = '{$trashItem['jamQty']}' and `order` = '{$orderSaveId}';"
+                );
+                $printData = @mysqli_fetch_assoc($data)['id'];
+
+                if (empty($printData)) {
+                    $data = mysqli_query(
+                        $bdConnect,
+                        "insert into `boxes` (`jam`, `quantity`, `order`) values ('{$trashItem['jamId']}', '{$trashItem['jamQty']}', '{$orderSaveId}' );"
+                    );
+                    $printData = mysqli_insert_id($bdConnect);
+                    if (empty($printData)) {
+                        throw new Exception(
+                            'ошибка при сохранении в БД. SQL error: ' .
+                                mysqli_error($bdConnect)
+                        );
+                    }
+                }
+            }
+
+            $successOrder = "Ваш заказ №{$orderSaveId} успешно отправлен!";
+            exit(json_encode($successOrder, 256));
         }
 
         throw new Exception('некорректное значение полей запроса');
