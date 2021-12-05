@@ -22,6 +22,15 @@ $("#addToTrash").on("click", function () {
   }, params);
 });
 
+$("#popUpForm").on("submit", function () {
+  let params = $(this).serialize();
+  console.log(params);
+  serverRequest(function (data) {
+    alert(data);
+  }, params);
+  return false;
+});
+
 function componentCounter() {
   let componentCount = 0;
   for (let componentItem in jar) {
@@ -94,6 +103,7 @@ function trashRender() {
   $("#orderPopUp ul").html(htmlItemsPopUp);
   $("#fullPrice").html(sum);
   $("input[name='trashItems']").val(JSON.stringify(trash));
+  $("#fullOrderPrice").html(sum);
 }
 
 function trashRemove(htmlItem) {

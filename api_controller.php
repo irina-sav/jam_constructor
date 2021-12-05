@@ -66,7 +66,45 @@ try {
             }
 
             exit(json_encode($printData, 256));
+        } elseif (
+            @$_POST['trashItems'] &&
+            $_POST['name'] &&
+            $_POST['phone'] &&
+            $_POST['email']
+        ) {
+            $trashItems = json_decode($_POST['trashItems'], true);
+
+            $data = mysqli_query(
+                $bdConnect,
+                "select `id` from `customer` where `phone`= '{$_POST['phone']}' or `email` = '{$_POST['email']}"
+            );
+            $printData = @mysqli_fetch_assoc($data);
+            print_r($printData);
+            exit();
+            if (empty($printData)) {
+                $data = mysqli_query(
+                    $bdConnect,
+                    "insert into `customer` (`name`, `phone`, `email`) values ('{$_POST['name']}', '{$_POST['phone']}','{$_POST['email']}')"
+                );
+                $printData = mysqli_insert_id($bdConnect);
+                if (empty($printData)) {
+                    throw new Exception(
+                        'ошибка при сохранении в БД. SQL error: ' .
+                            mysqli_error($bdConnect)
+                    );
+                }
+            }
+            exit(
+                json_encode(
+                    [
+                        'customer' => $printData,
+                        'trash' => print_r($trashItems, true),
+                    ],
+                    256
+                )
+            );
         }
+
         throw new Exception('некорректное значение полей запроса');
     }
     throw new Exception('некорректный запрос');

@@ -39,17 +39,25 @@ require 'controller.php'; ?>
       </div>
     </header>
     <div id="orderPopUp">
-      <form action="">
+      <span>x</span>
+      <form id="popUpForm" action="">
         <h4>Ваш заказ:</h4>
         <ul>
          
         </ul>
+
         <input type="text" name="trashItems" hidden>
         <div><input type="text" placeholder="Как в вам обращаться" name="name"  required></div>
         <div><input type="tel" placeholder="+79999999999" pattern="\+7[0-9]{10}" name="phone" required></div>
         <div><input type="email" placeholder="test@test.com" name="email" required></div>
-        <div><textarea placeholder="Комментарий  к заказу"></textarea></div>
-        <div><input type="submit" value="Заказать"></div>
+        <div><textarea name="comment" placeholder="Комментарий  к заказу"></textarea></div>
+        <div class="total_amount">
+          <label>
+            ВСЕГО: 
+            <strong id="fullOrderPrice"></strong>
+          </label>
+        </div>
+        <div><button type="submit" class="choice_button">Заказать</button></div>
         
       </form>
     </div>
@@ -60,7 +68,7 @@ require 'controller.php'; ?>
           <p>Вы попали в мастерскую варенья.</p>
           <p>
             Стань создателем своего вкуса. <br />
-            Быть кондитером не так уж и сложно: выбери ингредиенты, отправь
+            Быть кондитером не так уж и сложно: <br> выбери ингредиенты, отправь
             заказ, а дальше мама все сделает в лучшем виде.
           </p>
           <p>Варенье как у мамы с любимым вкусом - это легко!</p>
