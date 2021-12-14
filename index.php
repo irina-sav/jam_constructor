@@ -57,7 +57,12 @@ require 'controller.php'; ?>
             <strong id="fullOrderPrice"></strong>
           </label>
         </div>
-        <div><button type="submit" class="choice_button">Заказать</button></div>
+        <div>
+          <label><input type="checkbox" oninput="this.checked ? orderButton.disabled = false : orderButton.disabled = true"> Даю согласие на обработку </label><strong id="goToAgreement" onclick="agreementForm.hidden = !agreementForm.hidden">персональных данных</strong>
+
+           <div id="agreementForm" hidden>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis illum odio hic dolore ad aliquam placeat eos harum numquam maxime! Doloremque, facere quibusdam. Atque aliquam esse officia optio, sed quod.</div>
+        </div>
+        <div><button id="orderButton" type="submit" class="choice_button" disabled>Заказать</button></div>
         
       </form>
     </div>
@@ -122,11 +127,11 @@ require 'controller.php'; ?>
     <section class="ready__jam">
       <h2>готовое варенье</h2>
       <ul>
-        <li>Яблоко-банан</li>
-        <li>слива-шоколад</li>
-        <li>абрикос-клубника</li>
-        <li>слива-апельсин</li>
-        <li>груша-киви</li>
+      <?php foreach ($readyJams as $readyJam) { ?>
+            <li>
+             <?= $readyJam['name'] ?>
+      </li>
+          <?php } ?>
       </ul>
     </section>
     <footer>

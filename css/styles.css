@@ -310,11 +310,17 @@ h1 {
   font-size: 2rem;
 }
 
-#orderPopUp input{
+#orderPopUp input {
   width: 50%;
   height: 1.5rem;
   border:orange solid 1px;
   margin: 10px 0;
+}
+#orderPopUp input[type="checkbox"] {
+  width: auto !important;
+  margin:0;
+ zoom: 1.5;
+ height:auto;
 }
 
 #orderPopUp ul li input{
