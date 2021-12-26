@@ -39,7 +39,7 @@ require 'controller.php'; ?>
       </div>
     </header>
     <div id="orderPopUp">
-      <span>x</span>
+      <strong id="closeOrderPopUp">x</strong>
       <form id="popUpForm" action="">
         <h4>Ваш заказ:</h4>
         <ul>
@@ -126,13 +126,17 @@ require 'controller.php'; ?>
     </section>
     <section class="ready__jam">
       <h2>готовое варенье</h2>
-      <ul>
+     
+      <ul id="readyJamList">
       <?php foreach ($readyJams as $readyJam) { ?>
-            <li>
+            <li data-id="<?= $readyJam['id'] ?>" data-price="<?= $readyJam[
+    'price'
+] ?>">
              <?= $readyJam['name'] ?>
-      </li>
+            </li>
           <?php } ?>
       </ul>
+     
     </section>
     <footer>
       <div class="footer__contacts">

@@ -18,7 +18,6 @@ $("#addToTrash").on("click", function () {
   serverRequest(function (data) {
     addTrash(data);
     trashRender();
-    console.log(data);
   }, params);
 });
 
@@ -27,8 +26,24 @@ $("#popUpForm").on("submit", function () {
   console.log(params);
   serverRequest(function (data) {
     alert(data);
+    $("#orderPopUp").hide();
+    window.location.reload();
   }, params);
   return false;
+});
+
+$("#placeOrder").click(function () {
+  // orderPopUp.style.display = "flex";
+  $("#orderPopUp").attr("style", "display: flex");
+});
+
+$("#closeOrderPopUp").click(function () {
+  $("#orderPopUp").hide();
+});
+
+$("#readyJamList > li").click(function () {
+  console.log($(this).data("price"));
+  addReadyJamToTrash(this);
 });
 
 function componentCounter() {
@@ -44,7 +59,7 @@ function jarAdd(component) {
   }
 }
 function jarRender() {
-  console.log(jar);
+  // console.log(jar);
   let html = "";
   let jamName = "";
   let componentsList = "";
@@ -77,7 +92,7 @@ function jarRemoveAll() {
 }
 
 function addTrash(jamData) {
-  console.log(jamData);
+  // console.log(jamData);
   trash[jamData.id] = {
     jamId: jamData.id,
     jamName: jamData.name,
@@ -87,11 +102,22 @@ function addTrash(jamData) {
   jarRemoveAll();
 }
 
+function addReadyJamToTrash(htmlReadyItem) {
+  let itemId = $(htmlReadyItem).data("id");
+  trash[itemId] = {
+    jamId: itemId,
+    jamName: $(htmlReadyItem).text(),
+    jamQty: 1,
+    jamPrice: $(htmlReadyItem).data("price"),
+  };
+  trashRender();
+}
+
 function trashRender() {
   let htmlItemsTrash = "";
   let htmlItemsPopUp = "";
   let sum = 0;
-  console.log(trash);
+
   for (let trashItem in trash) {
     htmlItemsTrash += `<li data-jamId="${trash[trashItem].jamId}">${trash[trashItem].jamName}<input type="number" min="1" max="100" oninput="trashReCounter(this)" value="${trash[trashItem].jamQty}"><span onclick="trashRemove(this)">x</span></li>`;
 
@@ -107,13 +133,13 @@ function trashRender() {
 }
 
 function trashRemove(htmlItem) {
-  console.log(trash);
+  // console.log(trash);
   delete trash[htmlItem.parentElement.attributes["data-jamId"].value];
   trashRender();
 }
 
 function trashReCounter(counter) {
-  console.log(counter.value);
+  // console.log(counter.value);
   trash[counter.parentElement.attributes["data-jamId"].value].jamQty =
     counter.value;
   trashRender();

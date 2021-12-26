@@ -24,7 +24,19 @@ function getReadyJams()
 {
     $data = mysqli_query(
         sqlConnect(),
-        'SELECT * FROM `jams` WHERE `availible` = 1'
+
+        'SELECT
+        j.id,
+        j.name,
+        (c1.price + c2.price) AS price
+    FROM
+        `jams` j
+    INNER JOIN `components` c1 ON
+        j.component_1 = c1.id
+    INNER JOIN `components` c2 ON
+        j.component_2 = c2.id
+    WHERE
+        j.availible = 1'
     );
     return mysqli_fetch_all($data, MYSQLI_ASSOC);
 }

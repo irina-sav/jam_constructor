@@ -73,6 +73,7 @@ try {
             $_POST['email']
         ) {
             $trashItems = json_decode($_POST['trashItems'], true);
+            // print_r($trashItems);
 
             $data = mysqli_query(
                 $bdConnect,
@@ -93,16 +94,10 @@ try {
                     );
                 }
             }
-            $jamsIds = implode(',', array_keys($trashItems));
-            $orderAmount = mysqli_query(
-                $bdConnect,
-                "SELECT SUM(c1.price + c2.price) as amount FROM `jams` j inner join `components` c1 ON j.component_1 = c1.id inner join `components` c2 ON j.component_2 = c2.id WHERE j.id IN ({$jamsIds});"
-            );
-            $orderAmountValue = @mysqli_fetch_assoc($orderAmount)['amount'];
 
             $orderSave = mysqli_query(
                 $bdConnect,
-                "insert into `orders` (`customer`, `amount`, `comment`) values ('{$customerId}', '{$orderAmountValue}','{$_POST['comment']}')"
+                "insert into `orders` (`customer`, `comment`) values ('{$customerId}','{$_POST['comment']}')"
             );
             $orderSaveId = mysqli_insert_id($bdConnect);
             if (empty($orderSaveId)) {
@@ -132,6 +127,25 @@ try {
                         );
                     }
                 }
+            }
+
+            $jamsIds = implode(',', array_keys($trashItems));
+
+            $orderAmount = mysqli_query(
+                $bdConnect,
+                "SELECT SUM(c.price * b.quantity) AS amount FROM `orders` o INNER JOIN `boxes` b ON b.order = o.id INNER JOIN `jams` j ON j.id = b.jam INNER JOIN `components` c ON c.id IN(j.component_1, j.component_2) WHERE o.id = {$orderSaveId}"
+            );
+            $orderAmountValue = @mysqli_fetch_assoc($orderAmount)['amount'];
+            $updateOrder = mysqli_query(
+                $bdConnect,
+                "UPDATE `orders` SET `amount` = {$orderAmountValue} WHERE `id` = {$orderSaveId}"
+            );
+            $updateOrderId = mysqli_affected_rows($bdConnect);
+            if (empty($updateOrderId)) {
+                throw new Exception(
+                    'сумма заказа не сохранена. SQL error: ' .
+                        mysqli_error($bdConnect)
+                );
             }
 
             $successOrder = "Ваш заказ №{$orderSaveId} успешно отправлен!";
