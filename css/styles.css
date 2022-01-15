@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: url(../img/body_fon.png) no-repeat left top;
+  background-image: url(../img/body_fon.png) no-repeat;
 }
 .container {
   margin: 0 auto;
@@ -136,6 +136,8 @@ h1 {
     border-radius: 10%;
     background-size: 101% 101%;
     color: white;
+    user-select: none;
+    cursor:pointer;
  }
 .taste:hover {
   border: black 2px solid;
@@ -279,7 +281,21 @@ h1 {
   text-transform: uppercase;
   font-weight: 600;
   margin: 10px 0px 10px 0px;
+  cursor: pointer;
 }
+
+.ready__jam ul li:hover{
+  color: brown;
+
+  
+}
+.ready__jam ul li:active{
+  color: brown;
+  border:orange solid 2px;
+  width:210px;
+ 
+}
+
 .footer__contacts {
 
   text-align: center;
@@ -314,6 +330,9 @@ h1 {
   top: 300px;
   left: 40%;
 }
+
+
+
 #orderPopUp h4{
   font-size: 2rem;
 }
@@ -330,6 +349,7 @@ h1 {
  zoom: 1.5;
  height:auto;
 }
+
 
 #orderPopUp ul li input{
   width: 3rem;
