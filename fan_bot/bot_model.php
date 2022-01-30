@@ -22,20 +22,15 @@ function requestToTelegramAPI(string $botMethod, array $options = []): array
 
 function setWebHook(
     bool $webHookSet = true,
-    string $path = 'bot_controller.php'
+    string $path = 'fan_bot/bot_controller.php'
 ) {
-    // if ($webHookSet) {
-    //     $url = "{$_SERVER['HTTP_X_FORWARDED_PROTO']}://{$_SERVER['HTTP_HOST']}/{$path}";
-    // } else {
-    //     $url = '';
-    // }
-
     $url = $webHookSet
         ? "{$_SERVER['HTTP_X_FORWARDED_PROTO']}://{$_SERVER['HTTP_HOST']}/{$path}"
         : '';
 
     $requestAPI = requestToTelegramAPI('setWebhook', ['url' => $url]);
-    exit($requestAPI);
+    print_r($requestAPI);
+    exit(" ($url)");
 }
 
 function addLog($info)

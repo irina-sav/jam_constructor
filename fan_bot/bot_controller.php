@@ -12,13 +12,15 @@ try {
         'chat_id' => $chatId,
         'text' => '',
     ];
-
+    // $helloMessage = str_contains($message, ['привет', 'hi', 'salut', 'bonjour', 'hello'])
     if (in_array($message, ['привет', 'hi', 'salut', 'bonjour', 'hello'])) {
         $options['text'] =
             'Привет' . ' ' . @$inputArray['message']['chat']['username'];
     } elseif (in_array($message, ['пока', 'bye', 'aurevoir'])) {
         $options['text'] =
             'Пока' . ' ' . @$inputArray['message']['chat']['username'];
+    } elseif ($message == '/start') {
+        $options['text'] = 'Поздоровайтесь  с ботом!';
     } else {
         $options['text'] =
             'Вы написали' . ' ' . @$inputArray['message']['text'];
