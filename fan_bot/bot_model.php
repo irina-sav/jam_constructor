@@ -39,3 +39,22 @@ function addLog($info)
     $oneLog = $date . ' ==> ' . print_r($info, true) . "\n";
     file_put_contents('logs/log.txt', $oneLog, FILE_APPEND);
 }
+function strContainsFromArray(string $str, array $strArray): bool
+{
+    foreach ($strArray as $itemStrArray) {
+        if (str_contains($str, $itemStrArray)) {
+            return true;
+        }
+    }
+    return false;
+}
+function strContainsByRegExp(string $str, array $strArray): bool
+{
+    foreach ($strArray as $itemStrArray) {
+        if (preg_match("/{$itemStrArray}[\W\w]{0,10}/iu", $str)) {
+            // throw new Exception($itemStrArray);
+            return true;
+        }
+    }
+    return false;
+}

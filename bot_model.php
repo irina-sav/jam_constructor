@@ -38,9 +38,31 @@ function setWebHook(
     exit($requestAPI);
 }
 
-function addLog($info)
+function addLog(mixed $info): void
 {
     $date = date('d.m.Y H:i:s');
     $oneLog = $date . ' ==> ' . print_r($info, true) . "\n";
     file_put_contents('logs/log.txt', $oneLog, FILE_APPEND);
+}
+function makeButton(array $buttonArray): string
+{
+    $buttonArrayResult = [];
+    foreach ($buttonArray as $buttonText => $buttonCallbackData) {
+        $buttonArrayResult['inline_keyboard'][] = [
+            ['text' => $buttonText, 'callback_data' => $buttonCallbackData],
+        ];
+    }
+    return json_encode($buttonArrayResult, JSON_UNESCAPED_UNICODE);
+}
+
+function makeOrderMessage(array $order): string
+{
+    $message = <<<END
+Новый заказ №{$order['number']}
+имя: {$order['user']}
+тел.: {$order['phone']}
+{$order['items']}
+сумма: {$order['amount']}
+END;
+    return $message;
 }
