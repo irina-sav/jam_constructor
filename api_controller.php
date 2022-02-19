@@ -46,7 +46,7 @@ try {
                 json_decode($_POST['trashItems'], true)
             );
 
-            $jamsIds = implode(',', array_keys($trashItems));
+            // $jamsIds = implode(',', array_keys($trashItems));
 
             $orderAmountValue = getOrderAmountById($dbConnect, $orderSaveId);
 

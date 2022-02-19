@@ -129,7 +129,7 @@ function addCustomer($dbConnect, $userData): int
     }
     return $customerId;
 }
-function getBoxByParams($dbConnect, $jamId, $jamQty, $orderId): array
+function getBoxByParams($dbConnect, $jamId, $jamQty, $orderId): ?array
 {
     $data = mysqli_query(
         $dbConnect,
@@ -198,3 +198,39 @@ function addAmountToOrder($dbConnect, $amount, $orderId): int
     }
     return $updateOrderId;
 }
+
+function getOrderInfoById($dbConnect, int $id): array
+{
+    $orderInfo = mysqli_query(
+        $dbConnect,
+        "SELECT o.`id` AS 'number',c.`name` as 'user', c.`phone`, GROUP_CONCAT(b.`id`) as 'boxIds', o.`amount`
+    FROM `orders` o  
+    INNER JOIN `customer` c ON c.`id` = o.`customer` 
+    INNER JOIN `boxes` b ON b.`order` = o.`id`
+    WHERE o.`id` = {$id}"
+    );
+    $orderInfoArray = mysqli_fetch_assoc($orderInfo);
+    $boxData = mysqli_query(
+        $dbConnect,
+        "SELECT j.`name`, b.`quantity`, GROUP_CONCAT(c.`name`) AS 'components' FROM `boxes` b 
+            INNER JOIN `jams` j ON b.`jam` = j.`id`
+            INNER JOIN `components` c ON j.component_1 = c.`id` OR j.`component_2` = c.`id`
+            WHERE b.`id` IN ({$orderInfoArray['boxIds']})
+            GROUP BY b.`id`"
+    );
+    $boxDataArray = mysqli_fetch_all($boxData, MYSQLI_ASSOC);
+    $items = '';
+
+    foreach ($boxDataArray as $boxDataItem) {
+        $items .= " - {$boxDataItem['name']} ({$boxDataItem['components']}) {$boxDataItem['quantity']} шт. \n";
+    }
+    return [
+        'number' => $orderInfoArray['number'],
+        'user' => $orderInfoArray['user'],
+        'phone' => $orderInfoArray['phone'],
+        'amount' => $orderInfoArray['amount'],
+        'items' => $items,
+    ];
+}
+
+print_r(getOrderInfoById(sqlConnect(), 65));
