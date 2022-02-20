@@ -1,6 +1,10 @@
 let jar = [];
 let trash = {};
 
+$(".header__burger").on("click", function () {
+  $(".header__burger, .header__menu").toggleClass("active");
+});
+
 $(".tasteStack").on("click", function () {
   let params = { componentId: $(this).data("id") };
   serverRequest(function (data) {

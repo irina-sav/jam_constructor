@@ -8,6 +8,7 @@ require 'controller.php'; ?>
     <meta name="description" content="Краткое описание сайта" />
     <title>Конструктор варенья</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/stylesmedia.css" />
     <link rel="stylesheet" href="css/media.css" />
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="shortcut" href="/favicon.ico" type="image/x-icon" />
@@ -15,28 +16,27 @@ require 'controller.php'; ?>
   <body>
     <header>
       <div class="container header__container">
-        <div class="header__wrapper">
-          <div class="header__logo">
-            <p>
-              <a href="#"> maminy <br />nishtyaki</a>
-            </p>
-          </div>
-          <div class="header__menu">
+      <div class="header__logo">
+        <a href="#"> maminy <br />nishtyaki</a>
+      </div>
+     
+      <div class="header__menu">
             <nav>
               <ul>
                 <li><a href="#">О нас </a></li>
                 <li><a href="#">Конструктор </a></li>
+                <li><a href="#">готовое варенье </a></li>
                 <li><a href="#">Контакты </a></li>
               </ul>
             </nav>
-          </div>
-          <div class="header__contacts">
-            <div class="contacts__wrapper">
-              <a href="tel: +79153560935">+7 915 356 09 35</a>
-            </div>
-          </div>
-        </div>
       </div>
+      <div class="header__burger">
+        <span></span>
+</div>
+          <div class="header__contacts">
+                          <a href="tel: +79153560935">+7 915 356 09 35</a>
+                     </div>
+           </div>
     </header>
     <div id="orderPopUp">
       <strong id="closeOrderPopUp">x</strong>

@@ -233,4 +233,4 @@ function getOrderInfoById($dbConnect, int $id): array
     ];
 }
 
-print_r(getOrderInfoById(sqlConnect(), 65));
+// print_r(getOrderInfoById(sqlConnect(), 65));
