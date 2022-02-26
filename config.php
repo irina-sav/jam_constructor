@@ -3,9 +3,12 @@ const BOT_TOKKEN = '5084811015:AAEGyvJta1D3HUniViFdQCA7RA1s7WX54yo';
 const ADMIN_CHAT_ID = 290849929;
 
 const ADMIN_BUTTONS = [
-    'ждет обработки' => 0,
-    'обработано' => 1,
+    0 => 'ждет обработки',
+    1 => 'обработано',
 ];
+
+const PENDING_BUTTON = [0 => 'ждет обработки'];
+const COMPLETE_BUTTON = [1 => 'обработано'];
 
 const TEST_ORDER_ARRAY = [
     'user' => 'Ирина Савельева',

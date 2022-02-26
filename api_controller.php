@@ -1,5 +1,8 @@
 <?php
+require_once 'config.php';
 require_once 'model.php';
+require_once 'bot_model.php';
+
 try {
     if (!empty($_POST)) {
         $dbConnect = sqlConnect();
@@ -52,7 +55,16 @@ try {
 
             addAmountToOrder($dbConnect, $orderAmountValue, $orderSaveId);
 
+            $options['chat_id'] = ADMIN_CHAT_ID;
+            $options['text'] = makeOrderMessage(
+                getOrderInfoById($dbConnect, $orderSaveId)
+            );
+            $options['reply_markup'] = makeButton(PENDING_BUTTON);
+            $telegrammAnswer = requestToTelegramAPI('sendMessage', $options);
+            addlog($telegrammAnswer);
+
             $successOrder = "Ваш заказ №{$orderSaveId} успешно отправлен!";
+
             exit(json_encode($successOrder, 256));
         }
 

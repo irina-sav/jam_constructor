@@ -47,7 +47,7 @@ function addLog(mixed $info): void
 function makeButton(array $buttonArray): string
 {
     $buttonArrayResult = [];
-    foreach ($buttonArray as $buttonText => $buttonCallbackData) {
+    foreach ($buttonArray as $buttonCallbackData => $buttonText) {
         $buttonArrayResult['inline_keyboard'][] = [
             ['text' => $buttonText, 'callback_data' => $buttonCallbackData],
         ];
