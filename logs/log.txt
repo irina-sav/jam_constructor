@@ -1,0 +1,223 @@
+15.01.2022 12:03:03 ==> Array
+(
+    [update_id] => 551124329
+    [message] => Array
+        (
+            [message_id] => 10
+            [from] => Array
+                (
+                    [id] => 290849929
+                    [is_bot] => 
+                    [first_name] => Irina
+                    [last_name] => Saveleva
+                    [username] => Dunkerk_i
+                    [language_code] => ru
+                )
+
+            [chat] => Array
+                (
+                    [id] => 290849929
+                    [first_name] => Irina
+                    [last_name] => Saveleva
+                    [username] => Dunkerk_i
+                    [type] => private
+                )
+
+            [date] => 1642237382
+            [text] => hello bot
+        )
+
+)
+
+15.01.2022 12:12:55 ==> Array
+(
+    [update_id] => 551124330
+    [message] => Array
+        (
+            [message_id] => 11
+            [from] => Array
+                (
+                    [id] => 290849929
+                    [is_bot] => 
+                    [first_name] => Irina
+                    [last_name] => Saveleva
+                    [username] => Dunkerk_i
+                    [language_code] => ru
+                )
+
+            [chat] => Array
+                (
+                    [id] => 290849929
+                    [first_name] => Irina
+                    [last_name] => Saveleva
+                    [username] => Dunkerk_i
+                    [type] => private
+                )
+
+            [date] => 1642237974
+            [text] => hello test
+        )
+
+)
+
+15.01.2022 12:13:25 ==> Array
+(
+    [update_id] => 551124331
+    [message] => Array
+        (
+            [message_id] => 13
+            [from] => Array
+                (
+                    [id] => 290849929
+                    [is_bot] => 
+                    [first_name] => Irina
+                    [last_name] => Saveleva
+                    [username] => Dunkerk_i
+                    [language_code] => ru
+                )
+
+            [chat] => Array
+                (
+                    [id] => 290849929
+                    [first_name] => Irina
+                    [last_name] => Saveleva
+                    [username] => Dunkerk_i
+                    [type] => private
+                )
+
+            [date] => 1642238005
+            [text] => УРА!
+        )
+
+)
+
+15.01.2022 12:33:11 ==> Array
+(
+    [update_id] => 551124332
+    [message] => Array
+        (
+            [message_id] => 15
+            [from] => Array
+                (
+                    [id] => 492689908
+                    [is_bot] => 
+                    [first_name] => Артем
+                    [username] => Artezoomka
+                    [language_code] => ru
+                )
+
+            [chat] => Array
+                (
+                    [id] => 492689908
+                    [first_name] => Артем
+                    [username] => Artezoomka
+                    [type] => private
+                )
+
+            [date] => 1642239191
+            [text] => /start
+            [entities] => Array
+                (
+                    [0] => Array
+                        (
+                            [offset] => 0
+                            [length] => 6
+                            [type] => bot_command
+                        )
+
+                )
+
+        )
+
+)
+
+15.01.2022 12:33:16 ==> Array
+(
+    [update_id] => 551124333
+    [message] => Array
+        (
+            [message_id] => 17
+            [from] => Array
+                (
+                    [id] => 492689908
+                    [is_bot] => 
+                    [first_name] => Артем
+                    [username] => Artezoomka
+                    [language_code] => ru
+                )
+
+            [chat] => Array
+                (
+                    [id] => 492689908
+                    [first_name] => Артем
+                    [username] => Artezoomka
+                    [type] => private
+                )
+
+            [date] => 1642239196
+            [text] => Привет
+        )
+
+)
+
+15.01.2022 12:33:22 ==> Array
+(
+    [update_id] => 551124334
+    [message] => Array
+        (
+            [message_id] => 19
+            [from] => Array
+                (
+                    [id] => 492689908
+                    [is_bot] => 
+                    [first_name] => Артем
+                    [username] => Artezoomka
+                    [language_code] => ru
+                )
+
+            [chat] => Array
+                (
+                    [id] => 492689908
+                    [first_name] => Артем
+                    [username] => Artezoomka
+                    [type] => private
+                )
+
+            [date] => 1642239202
+            [text] => Чудо
+        )
+
+)
+
+
+23.01.2022 11:21:00 ==> Array
+(
+    [update_id] => 551124336
+    [message] => Array
+        (
+            [message_id] => 23
+            [from] => Array
+                (
+                    [id] => 290849929
+                    [is_bot] => 
+                    [first_name] => Irina
+                    [last_name] => Saveleva
+                    [username] => Dunkerk_i
+                    [language_code] => ru
+                )
+
+            [chat] => Array
+                (
+                    [id] => 290849929
+                    [first_name] => Irina
+                    [last_name] => Saveleva
+                    [username] => Dunkerk_i
+                    [type] => private
+                )
+
+            [date] => 1642926044
+            [text] => Привет !
+        )
+
+)
+
