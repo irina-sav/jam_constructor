@@ -6,7 +6,7 @@ require 'controller.php'; ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Краткое описание сайта" />
-    <title>Конструктор варенья (тестим пулл)</title>
+    <title>Конструктор варенья (тестим пулл тичер)</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/stylesmedia.css" />
     <link rel="stylesheet" href="css/media.css" />
