@@ -49,8 +49,6 @@ try {
                 json_decode($_POST['trashItems'], true)
             );
 
-            // $jamsIds = implode(',', array_keys($trashItems));
-
             $orderAmountValue = getOrderAmountById($dbConnect, $orderSaveId);
 
             addAmountToOrder($dbConnect, $orderAmountValue, $orderSaveId);
@@ -62,6 +60,12 @@ try {
             $options['reply_markup'] = makeButton(PENDING_BUTTON);
             $telegrammAnswer = requestToTelegramAPI('sendMessage', $options);
             addlog($telegrammAnswer);
+
+            setOrderMessageId(
+                $dbConnect,
+                $orderSaveId,
+                $telegrammAnswer['result']['message_id']
+            );
 
             $successOrder = "Ваш заказ №{$orderSaveId} успешно отправлен!";
 

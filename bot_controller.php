@@ -25,6 +25,11 @@ try {
         } else {
             throw new Exception('клик по неизвестной кнопке');
         }
+        setOrderStatus(
+            sqlConnect(),
+            $options['message_id'],
+            !$inputArray['callback_query']['data']
+        );
         requestToTelegramAPI('editMessageReplyMarkup', $options);
         exit();
     } elseif (isset($inputArray['message'])) {
@@ -53,6 +58,7 @@ try {
     addlog($e->getMessage());
     $options['text'] = 'error: ' . $e->getMessage();
     $options['chat_id'] = ADMIN_CHAT_ID;
+    unset($options['reply_markup']);
     requestToTelegramAPI('sendMessage', $options);
 }
 

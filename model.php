@@ -186,17 +186,7 @@ function getOrderAmountById($dbConnect, $orderId): int
 
 function addAmountToOrder($dbConnect, $amount, $orderId): int
 {
-    $updateOrder = mysqli_query(
-        $dbConnect,
-        "UPDATE `orders` SET `amount` = {$amount} WHERE `id` = {$orderId}"
-    );
-    $updateOrderId = mysqli_affected_rows($dbConnect);
-    if (empty($updateOrderId)) {
-        throw new Exception(
-            'сумма заказа не сохранена. SQL error: ' . mysqli_error($dbConnect)
-        );
-    }
-    return $updateOrderId;
+    return updateOrderParam($dbConnect, 'amount', $amount, 'id', $orderId);
 }
 
 function getOrderInfoById($dbConnect, int $id): array
@@ -233,4 +223,46 @@ function getOrderInfoById($dbConnect, int $id): array
     ];
 }
 
-// print_r(getOrderInfoById(sqlConnect(), 65));
+function setOrderStatus($dbConnect, int $messageId, int $orderStatus): int
+{
+    return updateOrderParam(
+        $dbConnect,
+        'complete',
+        $orderStatus,
+        'message_id',
+        $messageId
+    );
+}
+
+function updateOrderParam(
+    $dbConnect,
+    string $param,
+    mixed $value,
+    string $whereParam,
+    mixed $whereValue
+): int {
+    $update = mysqli_query(
+        $dbConnect,
+        "UPDATE `orders` SET `{$param}` = '{$value}' WHERE `{$whereParam}` = '{$whereValue}'"
+    );
+
+    $qtyRowsUpdate = mysqli_affected_rows($dbConnect);
+    if (empty($qtyRowsUpdate)) {
+        throw new Exception(
+            "не удалось обновить параметр {$param}. SQL error: " .
+                mysqli_error($dbConnect)
+        );
+    }
+    return $qtyRowsUpdate;
+}
+
+function setOrderMessageId($dbConnect, int $orderId, int $messageId): int
+{
+    return updateOrderParam(
+        $dbConnect,
+        'message_id',
+        $messageId,
+        'id',
+        $orderId
+    );
+}
