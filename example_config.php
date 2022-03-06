@@ -1,11 +1,13 @@
 <?php
-const DB_NAME = 'u1433184_jambase';
-const DB_HOST  = '31.31.196.95';
-const DB_USER =  'u1433184_jam';
-const DB_PASSWORD = 'hG0uI8rU9ksS3f';
+//change name of this file to "config.php"
 
-const BOT_TOKKEN = '5084811015:AAEGyvJta1D3HUniViFdQCA7RA1s7WX54yo';
-const ADMIN_CHAT_ID = 290849929;
+const DB_NAME = '';
+const DB_HOST = '';
+const DB_USER = '';
+const DB_PASSWORD = '';
+
+const BOT_TOKKEN = '';
+const ADMIN_CHAT_ID = 0;
 
 const ADMIN_BUTTONS = [
     0 => 'ждет обработки',

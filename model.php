@@ -1,12 +1,7 @@
 <?php
 function sqlConnect()
 {
-    $dbConnect = mysqli_connect(
-        '31.31.196.95',
-        'u1433184_jam',
-        'hG0uI8rU9ksS3f',
-        'u1433184_jambase'
-    );
+    $dbConnect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     mysqli_query($dbConnect, 'SET NAMES utf8');
 
     if (!$dbConnect) {
