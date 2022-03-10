@@ -1,7 +1,7 @@
 <?php
 const DB_NAME = 'u1433184_jambase';
-const DB_HOST  = '31.31.196.95';
-const DB_USER =  'u1433184_jam';
+const DB_HOST = '31.31.196.95';
+const DB_USER = 'u1433184_jam';
 const DB_PASSWORD = 'hG0uI8rU9ksS3f';
 
 const BOT_TOKKEN = '5084811015:AAEGyvJta1D3HUniViFdQCA7RA1s7WX54yo';
@@ -22,3 +22,4 @@ const TEST_ORDER_ARRAY = [
     'items' => 'слива, апельсин: 2, банан, клубника: 4',
     'amount' => 1200,
 ];
+echo 'check';
