@@ -2,8 +2,11 @@
 require_once 'config.php';
 require_once 'model.php';
 require_once 'bot_model.php';
+require_once 'Logger.php';
+
 
 try {
+    $simpleLog = new Logger();
     if (!empty($_POST)) {
         $dbConnect = sqlConnect();
 
@@ -59,7 +62,12 @@ try {
             );
             $options['reply_markup'] = makeButton(PENDING_BUTTON);
             $telegrammAnswer = requestToTelegramAPI('sendMessage', $options);
-            addlog($telegrammAnswer);
+
+            
+            $simpleLog->addLog($telegrammAnswer);
+
+
+            // addlog($telegrammAnswer);
 
             setOrderMessageId(
                 $dbConnect,

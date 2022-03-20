@@ -18,7 +18,10 @@ function sqlConnect()
 
 function getComponents()
 {
-    $data = mysqli_query(sqlConnect(), 'select * from `components`');
+    $data = mysqli_query(
+        sqlConnect(),
+        'select * from `components` where `price` is not null'
+    );
     return mysqli_fetch_all($data, MYSQLI_ASSOC);
 }
 

@@ -22,4 +22,3 @@ const TEST_ORDER_ARRAY = [
     'items' => 'слива, апельсин: 2, банан, клубника: 4',
     'amount' => 1200,
 ];
-echo 'check';
