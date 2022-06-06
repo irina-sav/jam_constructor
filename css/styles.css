@@ -85,8 +85,8 @@
 }
 
 .description {
-  padding-top: 40px;
-  text-align: right;
+  padding-top: 80px;
+  text-align: center;
   background-image: url(../img/upd_descr_slide.jpg);
   width: 100%;
   
@@ -111,6 +111,7 @@ h1 {
     font-size: 20px;
     text-align: center;
     margin-bottom: 20px;
+    letter-spacing: 2px;
 }
 .description p {
   margin-top: 15px;
@@ -170,7 +171,7 @@ h1 {
 
 .jamjar {
   position: relative;
-  width: 50%;
+  width: 43%;
 }
 
 .jamjar:before {

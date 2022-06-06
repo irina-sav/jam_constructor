@@ -98,11 +98,12 @@ require 'controller.php'; ?>
     <section class="constructor">
       <div class="container">
         <div class="constructor_wrapper">
-          <div class="customer__choice">
-            <div class="jamjar">
+        <div class="jamjar">
               
                            
-            </div>
+              </div>
+          <div class="customer__choice">
+        
             <div class="final__choice">
               <input id="jamName" data-componentsList="" type="text" placeholder="Введите ваше название" />
               <button id="addToTrash" class="choice_button">В корзину</button>
